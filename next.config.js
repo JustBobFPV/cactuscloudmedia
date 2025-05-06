@@ -3,8 +3,9 @@ const nextConfig = {
   images: {
     domains: ['cactuscloudmedia.com'],
     formats: ['image/avif', 'image/webp'],
+    unoptimized: true,
   },
-  output: 'standalone',
+  output: 'export',
 }
 
 module.exports = nextConfig 
