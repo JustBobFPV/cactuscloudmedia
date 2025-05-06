@@ -5,7 +5,7 @@ export default function ServicesPage() {
   const services = [
     {
       title: 'Basic Package',
-      price: '$299',
+      price: '$99',
       description: 'Perfect for single-family homes and basic listings',
       features: [
         '6 high-quality aerial photos',
@@ -18,11 +18,11 @@ export default function ServicesPage() {
     },
     {
       title: 'Premium Package',
-      price: '$599',
+      price: '$179',
       description: 'Ideal for luxury properties and comprehensive marketing',
       features: [
         '12 high-quality aerial photos',
-        '2-minute aerial video',
+        '15-second professionally edited aerial video',
         'Advanced photo editing',
         '48-hour delivery',
         'Property highlights',
@@ -33,7 +33,7 @@ export default function ServicesPage() {
     },
     {
       title: 'Custom Package',
-      price: 'Custom',
+      price: 'Contact for Quote',
       description: 'Tailored solutions for your specific needs',
       features: [
         'Custom photo count',

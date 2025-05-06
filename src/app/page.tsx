@@ -29,25 +29,11 @@ export default function Home() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-8">About Us</h2>
             <p className="text-lg text-gray-600 mb-8">
-              At Cactus Cloud Media, we specialize in capturing stunning aerial perspectives of properties
-              that help real estate professionals showcase their listings in the best possible light. With
-              years of experience and state-of-the-art equipment, we deliver high-quality aerial photography
-              and videography services that make your properties stand out.
+              Cactus Cloud Media is a new business dedicated to providing high-quality aerial photography and videography for real estate, commercial, and land projects. We use the latest drone technology to help your properties stand out.
             </p>
-            <div className="grid md:grid-cols-3 gap-8 mt-12">
-              <div className="p-6 bg-gray-50 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Experience</h3>
-                <p className="text-gray-600">5+ years of aerial photography expertise</p>
-              </div>
-              <div className="p-6 bg-gray-50 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Certified</h3>
-                <p className="text-gray-600">FAA Part 107 Certified Drone Pilot</p>
-              </div>
-              <div className="p-6 bg-gray-50 rounded-lg">
-                <h3 className="text-xl font-semibold mb-4">Quality</h3>
-                <p className="text-gray-600">4K video and high-resolution photography</p>
-              </div>
-            </div>
+            <p className="text-lg text-gray-600">
+              Our mission is to deliver professional, creative, and reliable aerial media services tailored to your needs.
+            </p>
           </div>
         </div>
       </section>
@@ -68,6 +54,7 @@ export default function Home() {
                 <li>• 24-hour delivery</li>
                 <li>• Basic editing</li>
               </ul>
+              <div className="text-xl font-bold text-blue-900 mb-4">$99</div>
               <button className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors">
                 Learn More
               </button>
@@ -77,14 +64,15 @@ export default function Home() {
             <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
               <h3 className="text-2xl font-semibold mb-4">Premium Package</h3>
               <p className="text-gray-600 mb-6">
-                Comprehensive aerial coverage with both photos and video for maximum impact.
+                Comprehensive aerial coverage with both photos and a short, professionally edited video for maximum impact.
               </p>
               <ul className="space-y-2 mb-6">
-                <li>• 12 aerial photos</li>
-                <li>• 2-minute aerial video</li>
+                <li>• 12 high-quality aerial photos</li>
+                <li>• 15-second professionally edited aerial video</li>
                 <li>• Advanced editing</li>
                 <li>• 48-hour delivery</li>
               </ul>
+              <div className="text-xl font-bold text-blue-900 mb-4">$179</div>
               <button className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors">
                 Learn More
               </button>
@@ -102,6 +90,7 @@ export default function Home() {
                 <li>• Premium editing</li>
                 <li>• Priority delivery</li>
               </ul>
+              <div className="text-xl font-bold text-blue-900 mb-4">Contact for Quote</div>
               <button className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors">
                 Contact Us
               </button>
