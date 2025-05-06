@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import MobileNav from '@/components/MobileNav'
+import Navigation from '@/components/Navigation'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,20 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <header className="fixed w-full bg-white/90 backdrop-blur-sm z-50 shadow-sm">
-          <nav className="container mx-auto px-4 py-4">
-            <div className="flex justify-between items-center">
-              <div className="text-2xl font-bold text-blue-900">Cactus Cloud Media</div>
-              <div className="hidden md:flex space-x-8">
-                <a href="#services" className="text-gray-600 hover:text-blue-900">Services</a>
-                <a href="#portfolio" className="text-gray-600 hover:text-blue-900">Portfolio</a>
-                <a href="#about" className="text-gray-600 hover:text-blue-900">About</a>
-                <a href="#contact" className="text-gray-600 hover:text-blue-900">Contact</a>
-              </div>
-              <MobileNav />
-            </div>
-          </nav>
-        </header>
+        <Navigation />
         {children}
         <footer className="bg-gray-900 text-white py-12">
           <div className="container mx-auto px-4">
