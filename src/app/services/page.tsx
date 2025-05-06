@@ -114,7 +114,7 @@ export default function ServicesPage() {
             </div>
             <div className="bg-white p-6 rounded-lg shadow">
               <h3 className="text-xl font-semibold mb-2">What areas do you service?</h3>
-              <p className="text-gray-600">We currently service the greater Phoenix metropolitan area and surrounding cities.</p>
+              <p className="text-gray-600">We currently service the greater Albuquerque metropolitan area and surrounding cities.</p>
             </div>
             <div className="bg-white p-6 rounded-lg shadow">
               <h3 className="text-xl font-semibold mb-2">Do you offer rush delivery?</h3>

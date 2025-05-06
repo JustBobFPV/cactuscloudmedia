@@ -192,7 +192,7 @@ export default function ContactPage() {
                     </svg>
                     <div>
                       <h3 className="font-semibold">Service Area</h3>
-                      <p className="text-gray-600">Greater Phoenix Metropolitan Area</p>
+                      <p className="text-gray-600">Greater Albuquerque Metropolitan Area</p>
                     </div>
                   </div>
                 </div>
