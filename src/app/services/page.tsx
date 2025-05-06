@@ -22,8 +22,8 @@ export default function ServicesPage() {
       description: 'Ideal for luxury properties and comprehensive marketing',
       features: [
         '12 high-quality aerial photos',
-        '15-second professionally edited aerial video',
-        'Advanced photo editing',
+        '30-second professionally edited aerial video',
+        'Basic photo editing',
         '48-hour delivery',
         'Property highlights',
         'Drone video editing',

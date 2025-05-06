@@ -68,8 +68,8 @@ export default function Home() {
               </p>
               <ul className="space-y-2 mb-6">
                 <li>• 12 high-quality aerial photos</li>
-                <li>• 15-second professionally edited aerial video</li>
-                <li>• Advanced editing</li>
+                <li>• 30-second professionally edited aerial video</li>
+                <li>• Basic editing</li>
                 <li>• 48-hour delivery</li>
               </ul>
               <div className="text-xl font-bold text-blue-900 mb-4">$179</div>
@@ -103,10 +103,15 @@ export default function Home() {
       <Portfolio />
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-gray-50">
+      <section id="contact" className="py-20 bg-gradient-to-br from-blue-50 to-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16">Get in Touch</h2>
-          <ContactForm />
+          <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-10">
+            <h2 className="text-4xl font-bold text-center mb-4 text-blue-900">Get in Touch</h2>
+            <p className="text-lg text-gray-600 text-center mb-8">
+              Ready to elevate your property marketing? Fill out the form below and we'll get back to you soon!
+            </p>
+            <ContactForm />
+          </div>
         </div>
       </section>
     </main>
