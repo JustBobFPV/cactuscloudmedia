@@ -1,8 +1,18 @@
 'use client'
 import React, { useState } from 'react'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export default function MobileNav() {
   const [isOpen, setIsOpen] = useState(false)
+  const pathname = usePathname()
+
+  const navItems = [
+    { href: '/services', label: 'Services' },
+    { href: '/portfolio', label: 'Portfolio' },
+    { href: '/#about', label: 'About' },
+    { href: '/contact', label: 'Contact' }
+  ]
 
   return (
     <div className="md:hidden">
@@ -33,34 +43,18 @@ export default function MobileNav() {
       {isOpen && (
         <div className="absolute top-full left-0 right-0 bg-white shadow-lg py-4 px-4">
           <nav className="flex flex-col space-y-4">
-            <a
-              href="#services"
-              className="text-gray-600 hover:text-blue-900"
-              onClick={() => setIsOpen(false)}
-            >
-              Services
-            </a>
-            <a
-              href="#portfolio"
-              className="text-gray-600 hover:text-blue-900"
-              onClick={() => setIsOpen(false)}
-            >
-              Portfolio
-            </a>
-            <a
-              href="#about"
-              className="text-gray-600 hover:text-blue-900"
-              onClick={() => setIsOpen(false)}
-            >
-              About
-            </a>
-            <a
-              href="#contact"
-              className="text-gray-600 hover:text-blue-900"
-              onClick={() => setIsOpen(false)}
-            >
-              Contact
-            </a>
+            {navItems.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`text-gray-600 hover:text-blue-900 ${
+                  pathname === item.href ? 'text-blue-900 font-semibold' : ''
+                }`}
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
           </nav>
         </div>
       )}

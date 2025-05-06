@@ -1,7 +1,6 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
-import MobileNav from '../components/MobileNav'
 import ContactForm from '../components/ContactForm'
 import Portfolio from '../components/Portfolio'
 

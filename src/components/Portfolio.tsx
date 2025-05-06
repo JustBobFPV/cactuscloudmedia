@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react'
+import Image from 'next/image'
 
 interface PortfolioItem {
   id: number
@@ -78,10 +79,13 @@ export default function Portfolio() {
         {filteredItems.map(item => (
           <div key={item.id} className="bg-white rounded-lg shadow-lg overflow-hidden">
             <div className="relative h-64">
-              <img
+              <Image
                 src={item.image}
                 alt={item.title}
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover"
+                priority={item.id <= 3}
               />
             </div>
             <div className="p-6">
