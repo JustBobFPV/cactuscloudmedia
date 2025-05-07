@@ -44,20 +44,20 @@ export default function ServicesPage() {
 
   const addons = [
     {
-      title: 'Social Media Package',
-      price: '$79',
-      description: 'Optimize your content for social media platforms',
+      title: 'Virtual Tour',
+      price: '$99',
+      description: 'Create an immersive virtual experience of your property',
       features: [
-        'Social media ready photos',
-        'Platform-specific formatting',
-        'Hashtag suggestions',
-        'Social media clips'
+        '360° property tour',
+        'Interactive hotspots',
+        'Floor plan integration',
+        'Mobile-friendly viewing'
       ]
     },
     {
       title: 'Rush Delivery',
       price: '$49',
-      description: 'Get your content faster',
+      description: 'Get your content faster when time is critical',
       features: [
         '12-hour delivery',
         'Priority processing',
@@ -65,14 +65,25 @@ export default function ServicesPage() {
       ]
     },
     {
-      title: 'Virtual Tour',
-      price: '$99',
-      description: 'Create an immersive virtual experience',
+      title: 'Social Media Enhancement',
+      price: '$79',
+      description: 'Optimize your content for social media platforms',
       features: [
-        '360° property tour',
-        'Interactive hotspots',
-        'Floor plan integration',
-        'Mobile-friendly viewing'
+        'Platform-specific formatting',
+        'Hashtag suggestions',
+        'Social media clips',
+        'Content calendar planning'
+      ]
+    },
+    {
+      title: 'Property Highlights',
+      price: '$69',
+      description: 'Showcase your property\'s best features',
+      features: [
+        'Feature-specific shots',
+        'Highlight reel creation',
+        'Property amenities focus',
+        'Neighborhood context'
       ]
     }
   ]
@@ -136,22 +147,25 @@ export default function ServicesPage() {
       {/* Add-ons Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Available Add-ons</h2>
-          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-4">Available Add-ons</h2>
+          <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Enhance your package with these additional services to make your property stand out even more.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {addons.map((addon, index) => (
               <div
                 key={index}
                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
               >
-                <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-4">{addon.title}</h3>
-                  <p className="text-3xl font-bold text-blue-900 mb-4">{addon.price}</p>
-                  <p className="text-gray-600 mb-6">{addon.description}</p>
-                  <ul className="space-y-3 mb-8">
+                <div className="p-6">
+                  <h3 className="text-xl font-bold mb-2">{addon.title}</h3>
+                  <p className="text-2xl font-bold text-blue-900 mb-3">{addon.price}</p>
+                  <p className="text-gray-600 text-sm mb-4">{addon.description}</p>
+                  <ul className="space-y-2 mb-6">
                     {addon.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-center">
+                      <li key={featureIndex} className="flex items-center text-sm">
                         <svg
-                          className="w-5 h-5 text-green-500 mr-2"
+                          className="w-4 h-4 text-green-500 mr-2 flex-shrink-0"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -167,7 +181,7 @@ export default function ServicesPage() {
                       </li>
                     ))}
                   </ul>
-                  <button className="w-full bg-blue-900 text-white py-3 rounded-lg hover:bg-blue-800 transition-colors">
+                  <button className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors text-sm">
                     Add to Package
                   </button>
                 </div>
