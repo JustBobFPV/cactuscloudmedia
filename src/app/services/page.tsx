@@ -46,10 +46,9 @@ export default function ServicesPage() {
     {
       title: 'Virtual Tour',
       price: '$99',
-      description: 'Create an immersive virtual experience of your property',
+      description: '360° immersive property experience',
       features: [
-        '360° property tour',
-        'Interactive hotspots',
+        'Interactive property tour',
         'Floor plan integration',
         'Mobile-friendly viewing'
       ]
@@ -57,32 +56,30 @@ export default function ServicesPage() {
     {
       title: 'Rush Delivery',
       price: '$49',
-      description: 'Get your content faster when time is critical',
+      description: '12-hour turnaround time',
       features: [
-        '12-hour delivery',
         'Priority processing',
-        'Express editing'
+        'Express editing',
+        'Quick delivery'
       ]
     },
     {
-      title: 'Social Media Enhancement',
+      title: 'Social Media',
       price: '$79',
-      description: 'Optimize your content for social media platforms',
+      description: 'Social media ready content',
       features: [
-        'Platform-specific formatting',
+        'Platform optimization',
         'Hashtag suggestions',
-        'Social media clips',
-        'Content calendar planning'
+        'Social media clips'
       ]
     },
     {
       title: 'Property Highlights',
       price: '$69',
-      description: 'Showcase your property\'s best features',
+      description: 'Feature-focused content',
       features: [
-        'Feature-specific shots',
-        'Highlight reel creation',
-        'Property amenities focus',
+        'Highlight reel',
+        'Amenities focus',
         'Neighborhood context'
       ]
     }
@@ -147,9 +144,9 @@ export default function ServicesPage() {
       {/* Add-ons Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-4">Available Add-ons</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Add-ons</h2>
           <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            Enhance your package with these additional services to make your property stand out even more.
+            Enhance your package with these additional services
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {addons.map((addon, index) => (
@@ -158,8 +155,10 @@ export default function ServicesPage() {
                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
               >
                 <div className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{addon.title}</h3>
-                  <p className="text-2xl font-bold text-blue-900 mb-3">{addon.price}</p>
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="text-xl font-bold">{addon.title}</h3>
+                    <span className="text-2xl font-bold text-blue-900">{addon.price}</span>
+                  </div>
                   <p className="text-gray-600 text-sm mb-4">{addon.description}</p>
                   <ul className="space-y-2 mb-6">
                     {addon.features.map((feature, featureIndex) => (
