@@ -5,7 +5,7 @@ export default function ServicesPage() {
   const services = [
     {
       title: 'Basic Package',
-      price: '$149',
+      price: '$129',
       description: 'Essential aerial coverage for your property',
       features: [
         '8 aerial photos',
@@ -16,7 +16,7 @@ export default function ServicesPage() {
     },
     {
       title: 'Premium Package',
-      price: '$249',
+      price: '$219',
       description: 'Complete aerial coverage with video',
       features: [
         '15 aerial photos',
@@ -42,7 +42,7 @@ export default function ServicesPage() {
   const addons = [
     {
       title: 'Virtual Tour',
-      price: '$99',
+      price: '$89',
       description: '360° immersive property experience',
       features: [
         'Interactive property tour',
@@ -52,7 +52,7 @@ export default function ServicesPage() {
     },
     {
       title: 'Rush Delivery',
-      price: '$49',
+      price: '$39',
       description: '12-hour turnaround time',
       features: [
         'Priority processing',
@@ -62,7 +62,7 @@ export default function ServicesPage() {
     },
     {
       title: 'Social Media',
-      price: '$79',
+      price: '$69',
       description: 'Social media ready content',
       features: [
         'Platform optimization',
@@ -72,7 +72,7 @@ export default function ServicesPage() {
     },
     {
       title: 'Property Highlights',
-      price: '$69',
+      price: '$59',
       description: 'Feature-focused content',
       features: [
         'Highlight reel',
