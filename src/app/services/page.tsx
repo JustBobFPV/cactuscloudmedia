@@ -6,36 +6,33 @@ export default function ServicesPage() {
     {
       title: 'Basic Package',
       price: '$149',
-      description: 'Perfect for single-family homes and basic listings',
+      description: 'Essential aerial coverage for your property',
       features: [
-        '8 high-quality aerial photos',
+        '8 aerial photos',
         '24-hour delivery',
-        'Basic photo editing',
-        'Property overview shots',
-        'Downloadable digital files'
+        'Basic editing',
+        'Property overview'
       ]
     },
     {
       title: 'Premium Package',
       price: '$249',
-      description: 'Ideal for luxury properties and comprehensive marketing',
+      description: 'Complete aerial coverage with video',
       features: [
-        '15 high-quality aerial photos',
-        '60-second professionally edited aerial video',
-        'Basic photo editing',
+        '15 aerial photos',
+        '60-second video',
+        'Basic editing',
         '48-hour delivery',
-        'Property highlights',
-        'Drone video editing',
-        'Downloadable digital files'
+        'Property highlights'
       ]
     },
     {
       title: 'Custom Package',
       price: 'Contact for Quote',
-      description: 'Tailored solutions for your specific needs',
+      description: 'Tailored to your specific needs',
       features: [
         'Custom photo count',
-        'Extended video length',
+        'Extended video',
         'Premium editing',
         'Priority delivery'
       ]
@@ -92,7 +89,7 @@ export default function ServicesPage() {
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
           <p className="text-xl max-w-2xl mx-auto">
-            Professional aerial photography and videography packages designed to showcase your property in its best light.
+            Professional aerial photography and videography for your property
           </p>
         </div>
       </section>
@@ -100,7 +97,10 @@ export default function ServicesPage() {
       {/* Services Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Packages</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">Packages</h2>
+          <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Choose the perfect package for your property
+          </p>
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div
@@ -108,14 +108,16 @@ export default function ServicesPage() {
                 className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
               >
                 <div className="p-8">
-                  <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                  <p className="text-3xl font-bold text-blue-900 mb-4">{service.price}</p>
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-2xl font-bold">{service.title}</h3>
+                    <span className="text-3xl font-bold text-blue-900">{service.price}</span>
+                  </div>
                   <p className="text-gray-600 mb-6">{service.description}</p>
                   <ul className="space-y-3 mb-8">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center">
                         <svg
-                          className="w-5 h-5 text-green-500 mr-2"
+                          className="w-5 h-5 text-green-500 mr-2 flex-shrink-0"
                           fill="none"
                           stroke="currentColor"
                           viewBox="0 0 24 24"
@@ -191,9 +193,12 @@ export default function ServicesPage() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-center mb-4">FAQ</h2>
+          <p className="text-lg text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Common questions about our services
+          </p>
           <div className="max-w-3xl mx-auto space-y-6">
             <div className="bg-white p-6 rounded-lg shadow">
               <h3 className="text-xl font-semibold mb-2">How long does a typical shoot take?</h3>
