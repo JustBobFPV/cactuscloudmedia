@@ -5,29 +5,27 @@ export default function ServicesPage() {
   const services = [
     {
       title: 'Basic Package',
-      price: '$99',
+      price: '$149',
       description: 'Perfect for single-family homes and basic listings',
       features: [
-        '6 high-quality aerial photos',
+        '8 high-quality aerial photos',
         '24-hour delivery',
         'Basic photo editing',
         'Property overview shots',
-        'Downloadable digital files',
-        'Social media ready'
+        'Downloadable digital files'
       ]
     },
     {
       title: 'Premium Package',
-      price: '$179',
+      price: '$249',
       description: 'Ideal for luxury properties and comprehensive marketing',
       features: [
-        '12 high-quality aerial photos',
-        '30-second professionally edited aerial video',
+        '15 high-quality aerial photos',
+        '60-second professionally edited aerial video',
         'Basic photo editing',
         '48-hour delivery',
         'Property highlights',
         'Drone video editing',
-        'Social media clips',
         'Downloadable digital files'
       ]
     },
@@ -39,11 +37,42 @@ export default function ServicesPage() {
         'Custom photo count',
         'Extended video length',
         'Premium editing',
-        'Priority delivery',
-        'Custom angles',
-        'Virtual tour integration',
-        'Marketing consultation',
-        'Exclusive rights'
+        'Priority delivery'
+      ]
+    }
+  ]
+
+  const addons = [
+    {
+      title: 'Social Media Package',
+      price: '$79',
+      description: 'Optimize your content for social media platforms',
+      features: [
+        'Social media ready photos',
+        'Platform-specific formatting',
+        'Hashtag suggestions',
+        'Social media clips'
+      ]
+    },
+    {
+      title: 'Rush Delivery',
+      price: '$49',
+      description: 'Get your content faster',
+      features: [
+        '12-hour delivery',
+        'Priority processing',
+        'Express editing'
+      ]
+    },
+    {
+      title: 'Virtual Tour',
+      price: '$99',
+      description: 'Create an immersive virtual experience',
+      features: [
+        '360° property tour',
+        'Interactive hotspots',
+        'Floor plan integration',
+        'Mobile-friendly viewing'
       ]
     }
   ]
@@ -63,6 +92,7 @@ export default function ServicesPage() {
       {/* Services Grid */}
       <section className="py-20">
         <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Our Packages</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div
@@ -95,6 +125,50 @@ export default function ServicesPage() {
                   </ul>
                   <button className="w-full bg-blue-900 text-white py-3 rounded-lg hover:bg-blue-800 transition-colors">
                     Get Started
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Add-ons Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold text-center mb-12">Available Add-ons</h2>
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {addons.map((addon, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              >
+                <div className="p-8">
+                  <h3 className="text-2xl font-bold mb-4">{addon.title}</h3>
+                  <p className="text-3xl font-bold text-blue-900 mb-4">{addon.price}</p>
+                  <p className="text-gray-600 mb-6">{addon.description}</p>
+                  <ul className="space-y-3 mb-8">
+                    {addon.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-center">
+                        <svg
+                          className="w-5 h-5 text-green-500 mr-2"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <button className="w-full bg-blue-900 text-white py-3 rounded-lg hover:bg-blue-800 transition-colors">
+                    Add to Package
                   </button>
                 </div>
               </div>
