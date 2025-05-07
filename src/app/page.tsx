@@ -47,14 +47,15 @@ export default function Home() {
             <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
               <h3 className="text-2xl font-semibold mb-4">Basic Package</h3>
               <p className="text-gray-600 mb-6">
-                6 high-quality aerial photos of your property, perfect for basic listings.
+                8 high-quality aerial photos of your property, perfect for basic listings.
               </p>
               <ul className="space-y-2 mb-6">
-                <li>• 6 aerial photos</li>
+                <li>• 8 aerial photos</li>
                 <li>• 24-hour delivery</li>
                 <li>• Basic editing</li>
+                <li>• Property overview shots</li>
               </ul>
-              <div className="text-xl font-bold text-blue-900 mb-4">$99</div>
+              <div className="text-xl font-bold text-blue-900 mb-4">$149</div>
               <button className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors">
                 Learn More
               </button>
@@ -64,15 +65,16 @@ export default function Home() {
             <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
               <h3 className="text-2xl font-semibold mb-4">Premium Package</h3>
               <p className="text-gray-600 mb-6">
-                Comprehensive aerial coverage with both photos and a short, professionally edited video for maximum impact.
+                Comprehensive aerial coverage with both photos and a professionally edited video for maximum impact.
               </p>
               <ul className="space-y-2 mb-6">
-                <li>• 12 high-quality aerial photos</li>
-                <li>• 30-second professionally edited aerial video</li>
+                <li>• 15 high-quality aerial photos</li>
+                <li>• 60-second professionally edited aerial video</li>
                 <li>• Basic editing</li>
                 <li>• 48-hour delivery</li>
+                <li>• Property highlights</li>
               </ul>
-              <div className="text-xl font-bold text-blue-900 mb-4">$179</div>
+              <div className="text-xl font-bold text-blue-900 mb-4">$249</div>
               <button className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors">
                 Learn More
               </button>
