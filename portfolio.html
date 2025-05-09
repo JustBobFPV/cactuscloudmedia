@@ -49,6 +49,8 @@
                     <button class="filter-btn active" data-filter="all">All Work</button>
                     <button class="filter-btn" data-filter="residential">Residential</button>
                     <button class="filter-btn" data-filter="commercial">Commercial</button>
+                    <button class="filter-btn" data-filter="land">Land</button>
+                    <button class="filter-btn" data-filter="video">Video Tours</button>
                 </div>
             </div>
         </section>
@@ -57,45 +59,100 @@
         <section class="portfolio-grid">
             <div class="container">
                 <div class="gallery-grid">
-                    <!-- Residential 1 -->
+                    <!-- Residential Projects -->
                     <div class="gallery-item" data-category="residential">
                         <div class="gallery-image">
-                            <img src="images/portfolio/residential-1.jpg" alt="Luxury Home Aerial View" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'100%\' height=\'100%\' fill=\'%231e3a8a\'/><text x=\'50%\' y=\'50%\' font-size=\'24\' fill=\'white\' text-anchor=\'middle\' alignment-baseline=\'middle\'>Luxury Home</text></svg>';" />
+                            <img src="images/portfolio/residential-1.jpg" alt="Luxury Home Aerial View" loading="lazy" />
                             <div class="gallery-overlay">
                                 <h3>Luxury Home</h3>
                                 <p>Residential Property</p>
+                                <span class="gallery-tag">Aerial Photography</span>
                             </div>
                         </div>
                     </div>
-                    <!-- Residential 2 -->
+
                     <div class="gallery-item" data-category="residential">
                         <div class="gallery-image">
-                            <img src="images/portfolio/residential-2.jpg" alt="Modern Home Aerial View" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'100%\' height=\'100%\' fill=\'%231e3a8a\'/><text x=\'50%\' y=\'50%\' font-size=\'24\' fill=\'white\' text-anchor=\'middle\' alignment-baseline=\'middle\'>Modern Home</text></svg>';" />
+                            <img src="images/portfolio/residential-2.jpg" alt="Modern Home Aerial View" loading="lazy" />
                             <div class="gallery-overlay">
                                 <h3>Modern Home</h3>
                                 <p>Residential Property</p>
+                                <span class="gallery-tag">Aerial Photography</span>
                             </div>
                         </div>
                     </div>
-                    <!-- Commercial 1 -->
+
+                    <!-- Commercial Projects -->
                     <div class="gallery-item" data-category="commercial">
                         <div class="gallery-image">
-                            <img src="images/portfolio/commercial-1.jpg" alt="Office Complex Aerial View" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'100%\' height=\'100%\' fill=\'%231e3a8a\'/><text x=\'50%\' y=\'50%\' font-size=\'24\' fill=\'white\' text-anchor=\'middle\' alignment-baseline=\'middle\'>Office Complex</text></svg>';" />
+                            <img src="images/portfolio/commercial-1.jpg" alt="Office Complex Aerial View" loading="lazy" />
                             <div class="gallery-overlay">
                                 <h3>Office Complex</h3>
                                 <p>Commercial Property</p>
+                                <span class="gallery-tag">Aerial Photography</span>
                             </div>
                         </div>
                     </div>
-                    <!-- Commercial 2 -->
+
                     <div class="gallery-item" data-category="commercial">
                         <div class="gallery-image">
-                            <img src="images/portfolio/commercial-2.jpg" alt="Shopping Center Aerial View" onerror="this.onerror=null;this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'><rect width=\'100%\' height=\'100%\' fill=\'%231e3a8a\'/><text x=\'50%\' y=\'50%\' font-size=\'24\' fill=\'white\' text-anchor=\'middle\' alignment-baseline=\'middle\'>Shopping Center</text></svg>';" />
+                            <img src="images/portfolio/commercial-2.jpg" alt="Shopping Center Aerial View" loading="lazy" />
                             <div class="gallery-overlay">
                                 <h3>Shopping Center</h3>
                                 <p>Commercial Property</p>
+                                <span class="gallery-tag">Aerial Photography</span>
                             </div>
                         </div>
+                    </div>
+
+                    <!-- Land Projects -->
+                    <div class="gallery-item" data-category="land">
+                        <div class="gallery-image">
+                            <img src="images/portfolio/land-1.jpg" alt="Large Land Parcel Aerial View" loading="lazy" />
+                            <div class="gallery-overlay">
+                                <h3>Land Development</h3>
+                                <p>Large Land Parcel</p>
+                                <span class="gallery-tag">Aerial Photography</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Video Tours -->
+                    <div class="gallery-item video-item" data-category="video">
+                        <div class="gallery-image">
+                            <img src="images/portfolio/video-1.jpg" alt="Luxury Home Video Tour" loading="lazy" />
+                            <div class="gallery-overlay">
+                                <h3>Luxury Home Tour</h3>
+                                <p>Video Tour</p>
+                                <span class="gallery-tag">Video Production</span>
+                                <div class="play-button">
+                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                        <circle cx="24" cy="24" r="24" fill="white" fill-opacity="0.9"/>
+                                        <path d="M32 24L20 32V16L32 24Z" fill="#1e3a8a"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Stats -->
+        <section class="portfolio-stats">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Projects Completed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
                     </div>
                 </div>
             </div>
