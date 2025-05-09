@@ -871,7 +871,7 @@ p {
 /* Add-ons Section Styles */
 .add-ons-section {
     margin-top: 4rem;
-    padding: 3rem 0;
+    padding: 3rem 2rem;
     background: linear-gradient(135deg, var(--color-gray-50) 0%, var(--color-white) 100%);
     border-radius: 1rem;
     position: relative;
@@ -893,7 +893,6 @@ p {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 2rem;
-    padding: 0 1rem;
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
@@ -917,6 +916,7 @@ p {
     border: 1px solid var(--color-gray-200);
     position: relative;
     overflow: hidden;
+    height: 100%;
 }
 
 .add-on-card::before {
@@ -1003,6 +1003,11 @@ p {
     .add-ons-grid {
         grid-template-columns: 1fr;
         max-width: 600px;
+        padding: 0 1rem;
+    }
+    
+    .add-ons-section {
+        padding: 2rem 1rem;
     }
 }
 
