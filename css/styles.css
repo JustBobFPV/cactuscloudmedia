@@ -610,6 +610,26 @@ p {
   margin-top: auto;
 }
 
+/* Services CTA */
+.services-cta {
+  text-align: center;
+  margin-top: var(--spacing-12);
+  padding: var(--spacing-8);
+  background: linear-gradient(135deg, var(--color-gray-50), var(--color-white));
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-gray-200);
+}
+
+.services-cta p {
+  font-size: var(--font-size-lg);
+  color: var(--color-text);
+  margin-bottom: var(--spacing-6);
+}
+
+.services-cta .btn {
+  min-width: 200px;
+}
+
 /* CTA Section */
 .cta {
   padding: var(--spacing-16) 0;
@@ -818,6 +838,14 @@ p {
   .footer-links {
     justify-content: center;
   }
+  
+  .services-cta {
+    padding: var(--spacing-6);
+  }
+  
+  .services-cta p {
+    font-size: var(--font-size-base);
+  }
 }
 
 @media (min-width: 640px) {
@@ -842,9 +870,22 @@ p {
 
 /* Add-ons Section */
 .add-ons-section {
-  margin-top: var(--spacing-16);
-  padding-top: var(--spacing-12);
-  border-top: 1px solid var(--color-gray-200);
+  margin-top: var(--spacing-20);
+  padding: var(--spacing-12) var(--spacing-8);
+  background: linear-gradient(to bottom, var(--color-gray-50), var(--color-white));
+  border-radius: var(--radius-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.add-ons-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-primary-light));
 }
 
 .add-ons-title {
@@ -852,14 +893,31 @@ p {
   font-size: var(--font-size-2xl);
   margin-bottom: var(--spacing-8);
   color: var(--color-gray-900);
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.add-ons-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--color-primary);
+  border-radius: var(--radius-full);
 }
 
 .add-ons-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--spacing-6);
   max-width: 1200px;
   margin: 0 auto;
+  padding: var(--spacing-4);
 }
 
 .add-on-item {
@@ -868,37 +926,91 @@ p {
   border-radius: var(--radius-lg);
   border: 1px solid var(--color-gray-200);
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.add-on-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 0;
 }
 
 .add-on-item:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
   border-color: var(--color-primary);
+}
+
+.add-on-item:hover::before {
+  opacity: 0.05;
 }
 
 .add-on-item h4 {
   font-size: var(--font-size-lg);
   color: var(--color-primary);
-  margin-bottom: var(--spacing-2);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.add-on-item h4::before {
+  content: '+';
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-primary);
 }
 
 .add-on-price {
-  font-size: var(--font-size-xl);
+  font-size: var(--font-size-2xl);
   font-weight: 700;
   color: var(--color-gray-900);
-  margin-bottom: var(--spacing-2);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-2);
+}
+
+.add-on-price::before {
+  content: '$';
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--color-primary);
 }
 
 .add-on-item p {
   color: var(--color-text-light);
-  margin-bottom: 0;
+  margin: 0;
   font-size: var(--font-size-sm);
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
 }
 
 /* Media Queries for Add-ons */
 @media (max-width: 768px) {
+  .add-ons-section {
+    padding: var(--spacing-8) var(--spacing-4);
+  }
+  
   .add-ons-grid {
     grid-template-columns: 1fr;
+    padding: var(--spacing-2);
   }
   
   .add-on-item {
