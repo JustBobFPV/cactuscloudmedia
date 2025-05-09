@@ -7,29 +7,30 @@ document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const galleryItems = document.querySelectorAll('.gallery-item');
 
-    // Add click event listeners to filter buttons
     filterButtons.forEach(button => {
-        button.addEventListener('click', function() {
+        button.addEventListener('click', () => {
             // Remove active class from all buttons
             filterButtons.forEach(btn => btn.classList.remove('active'));
-            
             // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Get filter value
-            const filterValue = this.getAttribute('data-filter');
-            
-            // Filter gallery items
+            button.classList.add('active');
+
+            const filter = button.getAttribute('data-filter');
+
             galleryItems.forEach(item => {
-                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
                     item.style.display = 'block';
-                    // Add fade-in animation
-                    item.style.opacity = '0';
+                    // Add a small delay for smooth animation
                     setTimeout(() => {
                         item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
                     }, 50);
                 } else {
-                    item.style.display = 'none';
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    // Hide the item after animation
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 300);
                 }
             });
         });

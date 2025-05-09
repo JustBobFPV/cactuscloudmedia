@@ -920,6 +920,8 @@ p {
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     background-color: var(--color-white);
     aspect-ratio: 4/3;
+    opacity: 1;
+    transform: scale(1);
 }
 
 .gallery-item:hover {
@@ -992,13 +994,14 @@ p {
 @media (min-width: 640px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-6);
     }
 }
 
 @media (min-width: 1024px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: var(--spacing-12);
+        gap: var(--spacing-8);
     }
 }
 
