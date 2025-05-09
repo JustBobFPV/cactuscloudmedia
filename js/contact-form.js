@@ -75,21 +75,30 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   };
   
+  // Unified validation function
+  const validateField = (input, errorElement, validatorFn) => {
+    if (!input || !errorElement) return false;
+    
+    const error = validatorFn(input.value);
+    errorElement.textContent = error;
+    
+    if (error) {
+      input.classList.add('has-error');
+      errorElement.style.display = 'block';
+      return false;
+    } else {
+      input.classList.remove('has-error');
+      errorElement.style.display = 'none';
+      return true;
+    }
+  };
+  
   // Handle input blur events for validation feedback
   const attachValidation = (input, errorElement, validatorFn) => {
     if (!input || !errorElement) return;
     
     input.addEventListener('blur', function() {
-      const error = validatorFn(input.value);
-      errorElement.textContent = error;
-      
-      if (error) {
-        input.classList.add('has-error');
-        errorElement.style.display = 'block';
-      } else {
-        input.classList.remove('has-error');
-        errorElement.style.display = 'none';
-      }
+      validateField(input, errorElement, validatorFn);
     });
     
     input.addEventListener('input', function() {
@@ -111,9 +120,6 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Validate the entire form
   const validateForm = () => {
-    let isValid = true;
-    
-    // Validate each field
     const fields = [
       { input: nameInput, error: nameError, validator: validators.name },
       { input: emailInput, error: emailError, validator: validators.email },
@@ -122,27 +128,11 @@ document.addEventListener('DOMContentLoaded', function() {
       { input: messageInput, error: messageError, validator: validators.message }
     ];
     
-    fields.forEach(field => {
-      if (!field.input || !field.error) return;
-      
-      const error = field.validator(field.input.value);
-      field.error.textContent = error;
-      
-      if (error) {
-        field.input.classList.add('has-error');
-        field.error.style.display = 'block';
-        isValid = false;
-      } else {
-        field.input.classList.remove('has-error');
-        field.error.style.display = 'none';
-      }
-    });
-    
-    return isValid;
+    return fields.every(field => validateField(field.input, field.error, field.validator));
   };
   
   // Form submission handler
-  contactForm.addEventListener('submit', function(e) {
+  contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
     
     // Reset status messages
@@ -161,44 +151,53 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Collect form data
     const formData = {
-      name: nameInput.value,
-      email: emailInput.value,
-      phone: phoneInput.value,
+      name: nameInput.value.trim(),
+      email: emailInput.value.trim(),
+      phone: phoneInput.value.trim(),
       propertyType: propertyTypeInput.value,
-      message: messageInput.value
+      message: messageInput.value.trim()
     };
     
-    // Simulate form submission with a delay
-    // In a real implementation, this would be an API call or form submission to a backend
-    setTimeout(function() {
-      try {
-        // Simulate successful form submission
-        console.log('Form submitted:', formData);
-        
-        // Show success message
-        formSuccess.style.display = 'block';
-        
-        // Reset form
-        contactForm.reset();
-        
-        // Reset visual state after 5 seconds
-        setTimeout(() => {
-          formSuccess.style.display = 'none';
-        }, 5000);
-      } catch (error) {
-        // Show error message
-        formError.style.display = 'block';
-        
-        // Reset visual state after 5 seconds
-        setTimeout(() => {
-          formError.style.display = 'none';
-        }, 5000);
-      } finally {
-        // Reset button state
-        submitText.textContent = 'Send Message';
-        submitSpinner.style.display = 'none';
-        submitButton.disabled = false;
+    try {
+      // TODO: Replace with actual API endpoint
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+      
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
       }
-    }, 1500);
+      
+      // Show success message
+      formSuccess.style.display = 'block';
+      
+      // Reset form
+      contactForm.reset();
+      
+      // Reset visual state after 5 seconds
+      setTimeout(() => {
+        formSuccess.style.display = 'none';
+      }, 5000);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      
+      // Show error message with specific error if available
+      formError.textContent = error.message || 'An error occurred while sending your message. Please try again.';
+      formError.style.display = 'block';
+      
+      // Reset visual state after 5 seconds
+      setTimeout(() => {
+        formError.style.display = 'none';
+      }, 5000);
+    } finally {
+      // Reset button state
+      submitText.textContent = 'Send Message';
+      submitSpinner.style.display = 'none';
+      submitButton.disabled = false;
+    }
   });
 }); 

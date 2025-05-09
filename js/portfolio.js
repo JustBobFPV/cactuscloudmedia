@@ -6,6 +6,36 @@
 document.addEventListener('DOMContentLoaded', function() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const galleryItems = document.querySelectorAll('.gallery-item');
+    let animationFrame;
+
+    // Debounced animation function
+    const animateItems = (filter) => {
+        if (animationFrame) {
+            cancelAnimationFrame(animationFrame);
+        }
+
+        animationFrame = requestAnimationFrame(() => {
+            galleryItems.forEach(item => {
+                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                    item.style.display = 'block';
+                    // Use requestAnimationFrame for smoother animation
+                    requestAnimationFrame(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    });
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.8)';
+                    // Use requestAnimationFrame for smoother animation
+                    requestAnimationFrame(() => {
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    });
+                }
+            });
+        });
+    };
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -15,37 +45,7 @@ document.addEventListener('DOMContentLoaded', function() {
             button.classList.add('active');
 
             const filter = button.getAttribute('data-filter');
-
-            galleryItems.forEach(item => {
-                if (filter === 'all' || item.getAttribute('data-category') === filter) {
-                    item.style.display = 'block';
-                    // Add a small delay for smooth animation
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 50);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    // Hide the item after animation
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
-    });
-
-    // Add hover effect to gallery items
-    galleryItems.forEach(item => {
-        const overlay = item.querySelector('.gallery-overlay');
-        
-        item.addEventListener('mouseenter', function() {
-            overlay.style.opacity = '1';
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            overlay.style.opacity = '0';
+            animateItems(filter);
         });
     });
 

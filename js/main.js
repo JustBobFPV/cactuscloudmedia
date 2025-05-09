@@ -36,11 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
     
-    // Close mobile menu when clicking outside
+    // Optimized outside click handler using event delegation
     document.addEventListener('click', function(event) {
-      const isClickInside = navToggle.contains(event.target) || navMenu.contains(event.target);
-      
-      if (!isClickInside && navMenu.classList.contains('active')) {
+      if (!navToggle.contains(event.target) && !navMenu.contains(event.target) && navMenu.classList.contains('active')) {
         navMenu.classList.remove('active');
         
         // Reset hamburger icon
@@ -54,7 +52,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Smooth scroll for anchor links
+  // Debounced smooth scroll for anchor links
+  let scrollTimeout;
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       // Only handle links to anchors on the current page
@@ -67,23 +66,31 @@ document.addEventListener('DOMContentLoaded', function() {
         
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-          
-          // If mobile menu is open, close it
-          if (navMenu && navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            
-            // Reset hamburger icon
-            const spans = navToggle.querySelectorAll('span');
-            if (spans.length === 3) {
-              spans[0].style.transform = 'none';
-              spans[1].style.opacity = '1';
-              spans[2].style.transform = 'none';
-            }
+          // Clear any existing timeout
+          if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
           }
+          
+          // Set new timeout for smooth scroll
+          scrollTimeout = setTimeout(() => {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+            
+            // If mobile menu is open, close it
+            if (navMenu && navMenu.classList.contains('active')) {
+              navMenu.classList.remove('active');
+              
+              // Reset hamburger icon
+              const spans = navToggle.querySelectorAll('span');
+              if (spans.length === 3) {
+                spans[0].style.transform = 'none';
+                spans[1].style.opacity = '1';
+                spans[2].style.transform = 'none';
+              }
+            }
+          }, 100); // Small delay to prevent rapid consecutive scrolls
         }
       }
     });
