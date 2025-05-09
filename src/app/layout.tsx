@@ -7,7 +7,7 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Cactus Cloud Media',
+  title: 'Cactus Cloud Media LLC',
   description: 'Professional aerial photography and videography services',
 }
 
@@ -54,7 +54,7 @@ export default function RootLayout({
               </div>
             </div>
             <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-300">
-              <p>&copy; {new Date().getFullYear()} Cactus Cloud Media. All rights reserved.</p>
+              <p>&copy; {new Date().getFullYear()} Cactus Cloud Media LLC. All rights reserved.</p>
             </div>
           </div>
         </footer>

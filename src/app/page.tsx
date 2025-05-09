@@ -29,7 +29,7 @@ export default function Home() {
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-4xl font-bold mb-8">About Us</h2>
             <p className="text-lg text-gray-600 mb-8">
-              Cactus Cloud Media is a new business dedicated to providing high-quality aerial photography and videography for real estate, commercial, and land projects. We use the latest drone technology to help your properties stand out.
+              Cactus Cloud Media LLC is a new business dedicated to providing high-quality aerial photography and videography for real estate, commercial, and land projects. We use the latest drone technology to help your properties stand out.
             </p>
             <p className="text-lg text-gray-600">
               Our mission is to deliver professional, creative, and reliable aerial media services tailored to your needs.
