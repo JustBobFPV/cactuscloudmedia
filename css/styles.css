@@ -338,7 +338,7 @@ p {
 .hero-bg-pattern {
   position: absolute;
   inset: 0;
-  background-image: url('/images/drone-pattern.png');
+  background-image: url('/images/drone-pattern.svg');
   opacity: 0.1;
   z-index: -1;
   animation: pulse 4s ease-in-out infinite;
@@ -644,7 +644,7 @@ p {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url('/images/drone-pattern.png');
+  background-image: url('/images/drone-pattern.svg');
   opacity: 0.1;
   animation: pulse 4s ease-in-out infinite;
 }
