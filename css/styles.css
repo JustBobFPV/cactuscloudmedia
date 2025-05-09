@@ -922,11 +922,6 @@ p {
     aspect-ratio: 4/3;
 }
 
-.gallery-item.featured {
-    grid-column: span 2;
-    aspect-ratio: 16/9;
-}
-
 .gallery-item:hover {
     transform: translateY(-5px) scale(1.02);
     box-shadow: var(--shadow-xl);
@@ -997,10 +992,6 @@ p {
 @media (min-width: 640px) {
     .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .gallery-item.featured {
-        grid-column: span 2;
     }
 }
 
