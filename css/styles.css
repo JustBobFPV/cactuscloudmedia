@@ -839,6 +839,10 @@ p {
     padding: var(--spacing-8) 0;
     background-color: var(--color-gray-50);
     border-bottom: 1px solid var(--color-gray-200);
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+    backdrop-filter: blur(10px);
 }
 
 .filter-buttons {
@@ -846,6 +850,8 @@ p {
     justify-content: center;
     gap: var(--spacing-4);
     flex-wrap: wrap;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .filter-btn {
@@ -856,16 +862,41 @@ p {
     color: var(--color-primary);
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     font-size: var(--font-size-base);
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: var(--color-primary);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: -1;
+}
+
+.filter-btn:hover::before {
+    width: 300%;
+    height: 300%;
 }
 
 .filter-btn:hover,
 .filter-btn.active {
-    background-color: var(--color-primary);
     color: var(--color-white);
     transform: translateY(-1px);
     box-shadow: var(--shadow-md);
+}
+
+.filter-btn.active::before {
+    width: 300%;
+    height: 300%;
 }
 
 .portfolio-grid {
@@ -886,18 +917,25 @@ p {
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     background-color: var(--color-white);
+    aspect-ratio: 4/3;
+}
+
+.gallery-item.featured {
+    grid-column: span 2;
+    aspect-ratio: 16/9;
 }
 
 .gallery-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px) scale(1.02);
     box-shadow: var(--shadow-xl);
 }
 
 .gallery-image {
     position: relative;
-    padding-bottom: 75%; /* 4:3 aspect ratio */
+    width: 100%;
+    height: 100%;
     background-color: var(--color-gray-100);
 }
 
@@ -908,19 +946,19 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-item:hover .gallery-image img {
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .gallery-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(to top, 
-        rgba(0, 0, 0, 0.8) 0%,
-        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
         transparent 100%);
     display: flex;
     flex-direction: column;
@@ -928,7 +966,7 @@ p {
     padding: var(--spacing-6);
     color: var(--color-white);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-item:hover .gallery-overlay {
@@ -939,7 +977,7 @@ p {
     font-size: var(--font-size-xl);
     margin-bottom: var(--spacing-2);
     transform: translateY(20px);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .gallery-overlay p {
@@ -947,7 +985,7 @@ p {
     opacity: 0.9;
     margin-bottom: 0;
     transform: translateY(20px);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
 }
 
 .gallery-item:hover .gallery-overlay h3,
@@ -955,41 +993,73 @@ p {
     transform: translateY(0);
 }
 
-/* Video Portfolio */
-.video-portfolio {
-    padding: var(--spacing-12) 0;
-    background-color: var(--color-gray-50);
-    border-top: 1px solid var(--color-gray-200);
+/* Media Queries for Portfolio */
+@media (min-width: 640px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .gallery-item.featured {
+        grid-column: span 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--spacing-12);
+    }
+}
+
+/* Featured Projects Section */
+.featured-projects {
+    padding: var(--spacing-16) 0;
+    background: var(--color-background);
+}
+
+.featured-projects .section-description {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-8);
+    text-align: center;
+}
+
+.video-showcase {
+    margin-top: var(--spacing-12);
+    padding-top: var(--spacing-12);
+    border-top: 1px solid var(--color-border);
+}
+
+.subsection-title {
+    font-size: var(--text-xl);
+    color: var(--color-text);
+    margin-bottom: var(--spacing-6);
+    text-align: center;
 }
 
 .video-grid {
     display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: var(--spacing-8);
-    margin-top: var(--spacing-8);
-    max-width: 1200px;
-    margin: var(--spacing-8) auto 0;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-6);
+    margin-top: var(--spacing-6);
 }
 
 .video-item {
-    background-color: var(--color-white);
+    background: var(--color-background-alt);
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-md);
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .video-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-xl);
+    transform: translateY(-4px);
 }
 
 .video-wrapper {
     position: relative;
-    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
     height: 0;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    background-color: var(--color-gray-100);
+    overflow: hidden;
 }
 
 .video-wrapper iframe {
@@ -1001,32 +1071,25 @@ p {
     border: none;
 }
 
-.video-item h3 {
-    padding: var(--spacing-4);
-    margin-bottom: 0;
-    font-size: var(--font-size-xl);
+.video-item h4 {
+    font-size: var(--text-lg);
     color: var(--color-text);
+    margin: var(--spacing-4) var(--spacing-4) var(--spacing-2);
 }
 
 .video-item p {
-    padding: 0 var(--spacing-4) var(--spacing-4);
     color: var(--color-text-light);
-    margin-bottom: 0;
+    margin: 0 var(--spacing-4) var(--spacing-4);
+    font-size: var(--text-sm);
 }
 
-/* Media Queries for Portfolio */
-@media (min-width: 640px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+@media (max-width: 768px) {
+    .video-grid {
+        grid-template-columns: 1fr;
     }
     
-    .video-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 1024px) {
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .video-showcase {
+        margin-top: var(--spacing-8);
+        padding-top: var(--spacing-8);
     }
 } 

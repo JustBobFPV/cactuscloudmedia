@@ -3,134 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Image Generator</title>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <title>Generate Portfolio Placeholders</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
             padding: 2rem;
-            background: #f5f5f5;
+            background: #f3f4f6;
         }
-        .instructions {
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            padding: 1.5rem;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .instructions h1 {
-            color: #2d3748;
-            margin-bottom: 1rem;
-        }
-        .instructions ol {
-            padding-left: 1.5rem;
-        }
-        .grid {
+        .container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            margin-top: 2rem;
         }
         .placeholder {
-            aspect-ratio: 16/9;
-            background: linear-gradient(135deg, #4a90e2, #2d3748);
-            border-radius: 8px;
-            padding: 2rem;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .placeholder::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, rgba(0,0,0,0.2), transparent);
-        }
-        .placeholder h2 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
-        }
-        .placeholder p {
-            font-size: 1rem;
-            opacity: 0.9;
-            position: relative;
-        }
-        .download-btn {
-            margin-top: 1rem;
-            padding: 0.5rem 1rem;
             background: white;
-            color: #2d3748;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: transform 0.2s;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
-        .download-btn:hover {
-            transform: translateY(-2px);
+        .canvas-container {
+            position: relative;
+            width: 100%;
+            margin-bottom: 1rem;
+        }
+        canvas {
+            width: 100%;
+            height: auto;
+            border-radius: 0.25rem;
+        }
+        .category-label {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        .title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #1f2937;
+        }
+        .description {
+            color: #6b7280;
+            margin-bottom: 1rem;
+        }
+        button {
+            background: #1e3a8a;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        button:hover {
+            background: #1e40af;
+            transform: translateY(-1px);
+        }
+        h1 {
+            text-align: center;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+        p {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 2rem;
         }
     </style>
 </head>
 <body>
-    <div class="instructions">
-        <h1>Portfolio Image Generator</h1>
-        <ol>
-            <li>Click the "Download Image" button below each placeholder</li>
-            <li>Save the image with the suggested filename</li>
-            <li>Place the downloaded images in the portfolio images directory</li>
-        </ol>
+    <h1>Portfolio Placeholder Generator</h1>
+    <p>Click the buttons below to generate and download placeholder images for your portfolio.</p>
+    
+    <div class="container">
+        <!-- Featured -->
+        <div class="placeholder">
+            <div class="canvas-container">
+                <canvas id="featured1" width="800" height="450"></canvas>
+                <div class="category-label">Featured</div>
+            </div>
+            <div class="title">Luxury Estate</div>
+            <div class="description">Featured Project</div>
+            <button onclick="downloadImage('featured1', 'featured-1.jpg')">Download Image</button>
+        </div>
+
+        <!-- Residential -->
+        <div class="placeholder">
+            <div class="canvas-container">
+                <canvas id="residential1" width="800" height="600"></canvas>
+                <div class="category-label">Residential</div>
+            </div>
+            <div class="title">Luxury Home</div>
+            <div class="description">Residential Property</div>
+            <button onclick="downloadImage('residential1', 'residential-1.jpg')">Download Image</button>
+        </div>
+
+        <div class="placeholder">
+            <div class="canvas-container">
+                <canvas id="residential2" width="800" height="600"></canvas>
+                <div class="category-label">Residential</div>
+            </div>
+            <div class="title">Modern Home</div>
+            <div class="description">Residential Property</div>
+            <button onclick="downloadImage('residential2', 'residential-2.jpg')">Download Image</button>
+        </div>
+
+        <!-- Commercial -->
+        <div class="placeholder">
+            <div class="canvas-container">
+                <canvas id="commercial1" width="800" height="600"></canvas>
+                <div class="category-label">Commercial</div>
+            </div>
+            <div class="title">Office Complex</div>
+            <div class="description">Commercial Property</div>
+            <button onclick="downloadImage('commercial1', 'commercial-1.jpg')">Download Image</button>
+        </div>
+
+        <div class="placeholder">
+            <div class="canvas-container">
+                <canvas id="commercial2" width="800" height="600"></canvas>
+                <div class="category-label">Commercial</div>
+            </div>
+            <div class="title">Shopping Center</div>
+            <div class="description">Commercial Property</div>
+            <button onclick="downloadImage('commercial2', 'commercial-2.jpg')">Download Image</button>
+        </div>
     </div>
-    <div class="grid">
-        <div class="placeholder" id="residential-1">
-            <h2>Luxury Home</h2>
-            <p>Aerial view of a modern luxury residence</p>
-            <button class="download-btn" onclick="downloadImage('residential-1')">Download Image</button>
-        </div>
-        <div class="placeholder" id="commercial-1">
-            <h2>Office Complex</h2>
-            <p>Modern commercial building from above</p>
-            <button class="download-btn" onclick="downloadImage('commercial-1')">Download Image</button>
-        </div>
-        <div class="placeholder" id="residential-2">
-            <h2>Modern Home</h2>
-            <p>Contemporary residential property showcase</p>
-            <button class="download-btn" onclick="downloadImage('residential-2')">Download Image</button>
-        </div>
-        <div class="placeholder" id="commercial-2">
-            <h2>Shopping Center</h2>
-            <p>Retail complex aerial perspective</p>
-            <button class="download-btn" onclick="downloadImage('commercial-2')">Download Image</button>
-        </div>
-    </div>
+
     <script>
-        async function downloadImage(id) {
-            const element = document.getElementById(id);
-            const canvas = await html2canvas(element, {
-                backgroundColor: null,
-                scale: 2
-            });
+        function generatePlaceholder(canvasId, title, category) {
+            const canvas = document.getElementById(canvasId);
+            const ctx = canvas.getContext('2d');
+            const width = canvas.width;
+            const height = canvas.height;
+
+            // Background gradient
+            const gradient = ctx.createLinearGradient(0, 0, width, height);
+            gradient.addColorStop(0, '#1e3a8a');
+            gradient.addColorStop(1, '#1e40af');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, width, height);
+
+            // Add pattern
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+            for (let i = 0; i < width; i += 20) {
+                for (let j = 0; j < height; j += 20) {
+                    if ((i + j) % 40 === 0) {
+                        ctx.fillRect(i, j, 10, 10);
+                    }
+                }
+            }
+
+            // Add text
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
             
+            // Title
+            ctx.font = 'bold 48px system-ui';
+            ctx.fillText(title, width/2, height/2 - 30);
+            
+            // Category
+            ctx.font = '24px system-ui';
+            ctx.fillText(category, width/2, height/2 + 30);
+        }
+
+        // Generate all placeholders
+        generatePlaceholder('featured1', 'Luxury Estate', 'Featured Project');
+        generatePlaceholder('residential1', 'Luxury Home', 'Residential Property');
+        generatePlaceholder('residential2', 'Modern Home', 'Residential Property');
+        generatePlaceholder('commercial1', 'Office Complex', 'Commercial Property');
+        generatePlaceholder('commercial2', 'Shopping Center', 'Commercial Property');
+
+        function downloadImage(canvasId, filename) {
+            const canvas = document.getElementById(canvasId);
             const link = document.createElement('a');
-            link.download = `${id}.jpg`;
-            link.href = canvas.toDataURL('image/jpeg', 0.9);
+            link.download = filename;
+            link.href = canvas.toDataURL('image/jpeg', 0.8);
             link.click();
         }
     </script>
