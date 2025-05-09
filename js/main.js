@@ -18,81 +18,124 @@ document.addEventListener('DOMContentLoaded', function() {
   if (navToggle && navMenu) {
     navToggle.addEventListener('click', function() {
       navMenu.classList.toggle('active');
-      
-      // Toggle hamburger to X animation
-      const spans = navToggle.querySelectorAll('span');
-      if (spans.length === 3) {
-        if (navMenu.classList.contains('active')) {
-          // Convert to X
-          spans[0].style.transform = 'rotate(45deg) translate(5px, 5px)';
-          spans[1].style.opacity = '0';
-          spans[2].style.transform = 'rotate(-45deg) translate(5px, -5px)';
-        } else {
-          // Convert back to hamburger
-          spans[0].style.transform = 'none';
-          spans[1].style.opacity = '1';
-          spans[2].style.transform = 'none';
-        }
-      }
+      this.classList.toggle('active');
     });
     
     // Optimized outside click handler using event delegation
     document.addEventListener('click', function(event) {
       if (!navToggle.contains(event.target) && !navMenu.contains(event.target) && navMenu.classList.contains('active')) {
         navMenu.classList.remove('active');
-        
-        // Reset hamburger icon
-        const spans = navToggle.querySelectorAll('span');
-        if (spans.length === 3) {
-          spans[0].style.transform = 'none';
-          spans[1].style.opacity = '1';
-          spans[2].style.transform = 'none';
-        }
+        navToggle.classList.remove('active');
       }
     });
   }
   
-  // Debounced smooth scroll for anchor links
-  let scrollTimeout;
+  // Smooth Scroll for Anchor Links
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
-      // Only handle links to anchors on the current page
-      if (this.getAttribute('href').startsWith('#')) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        // Skip if it's just "#" with no target
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          // Clear any existing timeout
-          if (scrollTimeout) {
-            clearTimeout(scrollTimeout);
-          }
-          
-          // Set new timeout for smooth scroll
-          scrollTimeout = setTimeout(() => {
-            targetElement.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-            
-            // If mobile menu is open, close it
-            if (navMenu && navMenu.classList.contains('active')) {
-              navMenu.classList.remove('active');
-              
-              // Reset hamburger icon
-              const spans = navToggle.querySelectorAll('span');
-              if (spans.length === 3) {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-              }
-            }
-          }, 100); // Small delay to prevent rapid consecutive scrolls
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+        // Close mobile menu if open
+        if (navMenu.classList.contains('active')) {
+          navMenu.classList.remove('active');
+          navToggle.classList.remove('active');
         }
       }
     });
   });
+
+  // Header Scroll Effect
+  const header = document.querySelector('.header');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.pageYOffset;
+
+    if (currentScroll <= 0) {
+      header.classList.remove('scroll-up');
+      return;
+    }
+
+    if (currentScroll > lastScroll && !header.classList.contains('scroll-down')) {
+      // Scroll Down
+      header.classList.remove('scroll-up');
+      header.classList.add('scroll-down');
+    } else if (currentScroll < lastScroll && header.classList.contains('scroll-down')) {
+      // Scroll Up
+      header.classList.remove('scroll-down');
+      header.classList.add('scroll-up');
+    }
+    lastScroll = currentScroll;
+  });
+
+  // Fade In Animation on Scroll
+  const fadeElements = document.querySelectorAll('.fade-in');
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  fadeElements.forEach(element => {
+    element.style.opacity = '0';
+    element.style.transform = 'translateY(20px)';
+    element.style.transition = 'opacity 0.5s ease-out, transform 0.5s ease-out';
+    observer.observe(element);
+  });
+
+  // Service Card Hover Effects
+  const serviceCards = document.querySelectorAll('.service-card');
+  
+  serviceCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-5px)';
+      card.style.boxShadow = 'var(--shadow-lg)';
+    });
+
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0)';
+      card.style.boxShadow = 'var(--shadow)';
+    });
+  });
+
+  // Hero Section Parallax Effect
+  const heroBg = document.querySelector('.hero-bg');
+  
+  if (heroBg) {
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+    });
+  }
+
+  // Add fade-in class to elements
+  const sections = document.querySelectorAll('section');
+  sections.forEach(section => {
+    section.classList.add('fade-in');
+  });
+
+  // Initialize AOS (Animate On Scroll) if available
+  if (typeof AOS !== 'undefined') {
+    AOS.init({
+      duration: 800,
+      easing: 'ease-out',
+      once: true
+    });
+  }
 }); 
