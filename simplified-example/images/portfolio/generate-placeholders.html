@@ -21,7 +21,7 @@
         .placeholder {
             width: 100%;
             aspect-ratio: 4/3;
-            background: #1e3a8a;
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
             color: white;
             display: flex;
             flex-direction: column;
@@ -31,14 +31,39 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.1;
         }
         .placeholder h2 {
             margin: 0 0 10px 0;
             font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
         .placeholder p {
             margin: 0;
             opacity: 0.9;
+            font-size: 1rem;
+        }
+        .placeholder .category {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.875rem;
+            font-weight: 500;
         }
         .download-btn {
             margin-top: 20px;
@@ -48,6 +73,7 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
+            transition: background-color 0.2s;
         }
         .download-btn:hover {
             background: #0284c7;
@@ -85,25 +111,34 @@
     </div>
 
     <div class="image-container">
-        <div class="placeholder" id="residential1">
+        <!-- Residential Placeholders -->
+        <div class="placeholder" id="residential-1">
+            <div class="category">Residential</div>
             <h2>Luxury Home</h2>
-            <p>Residential Property</p>
             <p>Aerial View</p>
+            <p>Professional Drone Photography</p>
         </div>
-        <div class="placeholder" id="commercial1">
-            <h2>Office Complex</h2>
-            <p>Commercial Property</p>
-            <p>Aerial View</p>
-        </div>
-        <div class="placeholder" id="residential2">
+
+        <div class="placeholder" id="residential-2">
+            <div class="category">Residential</div>
             <h2>Modern Home</h2>
-            <p>Residential Property</p>
             <p>Aerial View</p>
+            <p>Professional Drone Photography</p>
         </div>
-        <div class="placeholder" id="commercial2">
-            <h2>Shopping Center</h2>
-            <p>Commercial Property</p>
+
+        <!-- Commercial Placeholders -->
+        <div class="placeholder" id="commercial-1">
+            <div class="category">Commercial</div>
+            <h2>Office Complex</h2>
             <p>Aerial View</p>
+            <p>Professional Drone Photography</p>
+        </div>
+
+        <div class="placeholder" id="commercial-2">
+            <div class="category">Commercial</div>
+            <h2>Shopping Center</h2>
+            <p>Aerial View</p>
+            <p>Professional Drone Photography</p>
         </div>
     </div>
 
