@@ -275,7 +275,7 @@ export default function Home() {
               {/* FPV Flythrough */}
               <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
                 <h4 className="text-xl font-semibold mb-2">Dynamic FPV Flythrough</h4>
-                <p className="text-gray-600 mb-2">Immersive cinematic drone footage that navigates around your property with dramatic sweeping movements using our DJI Avata 2.</p>
+                <p className="text-gray-600 mb-2">Immersive interior drone tour that flies through doorways and rooms in one continuous shot, creating a dramatic walkthrough experience using our DJI Avata 2.</p>
                 <p className="text-blue-900 font-bold">From $150</p>
               </div>
               
