@@ -1,3 +1,8 @@
+// Convert the JSX structure to HTML
+// Remove React and TypeScript specific code
+// Use JavaScript for dynamic content
+// Ensure styles are applied using CSS
+
 'use client'
 import React from 'react'
 import Image from 'next/image'
