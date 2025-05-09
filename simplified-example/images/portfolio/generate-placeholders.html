@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Portfolio Placeholders</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f3f4f6;
+        }
+        .image-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .placeholder {
+            width: 100%;
+            aspect-ratio: 4/3;
+            background: #1e3a8a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        .placeholder h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+        }
+        .placeholder p {
+            margin: 0;
+            opacity: 0.9;
+        }
+        .download-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #0369a1;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            background: #0284c7;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <div class="placeholder" id="residential1">
+            <h2>Luxury Home</h2>
+            <p>Residential Property</p>
+            <p>Aerial View</p>
+        </div>
+        <div class="placeholder" id="commercial1">
+            <h2>Office Complex</h2>
+            <p>Commercial Property</p>
+            <p>Aerial View</p>
+        </div>
+        <div class="placeholder" id="land1">
+            <h2>Development Land</h2>
+            <p>Land Property</p>
+            <p>Aerial View</p>
+        </div>
+        <div class="placeholder" id="event1">
+            <h2>Wedding Venue</h2>
+            <p>Event Coverage</p>
+            <p>Aerial View</p>
+        </div>
+        <div class="placeholder" id="residential2">
+            <h2>Modern Home</h2>
+            <p>Residential Property</p>
+            <p>Aerial View</p>
+        </div>
+        <div class="placeholder" id="commercial2">
+            <h2>Shopping Center</h2>
+            <p>Commercial Property</p>
+            <p>Aerial View</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to convert div to image
+        function convertToImage(element, filename) {
+            html2canvas(element).then(canvas => {
+                const link = document.createElement('a');
+                link.download = filename;
+                link.href = canvas.toDataURL('image/jpeg', 0.8);
+                link.click();
+            });
+        }
+
+        // Add download buttons
+        document.querySelectorAll('.placeholder').forEach(placeholder => {
+            const btn = document.createElement('button');
+            btn.className = 'download-btn';
+            btn.textContent = 'Download Image';
+            btn.onclick = () => {
+                const filename = `${placeholder.id}.jpg`;
+                convertToImage(placeholder, filename);
+            };
+            placeholder.appendChild(btn);
+        });
+    </script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</body>
+</html> 
