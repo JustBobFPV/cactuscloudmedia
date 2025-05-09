@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /portfolio
+Allow: /services
+Allow: /contact
+
+# Sitemap
+Sitemap: https://cactuscloudmedia.com/sitemap.xml
+
+# Disallow placeholder generator
+Disallow: /images/portfolio/generate-placeholders.html 

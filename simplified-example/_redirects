@@ -1,0 +1,7 @@
+# Redirect old URLs to new ones
+/old-portfolio    /portfolio    301
+/old-services     /services     301
+/old-contact      /contact      301
+
+# Handle 404s
+/*    /404.html    404 
