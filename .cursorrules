@@ -1,0 +1,9 @@
+{
+    "protected_files": [
+        {
+            "path": "products.md",
+            "description": "Reference file for service packages and pricing. Do not modify without explicit permission.",
+            "require_explicit_permission": true
+        }
+    ]
+} 
