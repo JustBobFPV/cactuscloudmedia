@@ -836,9 +836,9 @@ p {
 
 /* Portfolio Styles */
 .portfolio-filter {
-    padding: var(--spacing-8) 0;
-    background-color: var(--color-gray-50);
-    border-bottom: 1px solid var(--color-gray-200);
+    padding: var(--spacing-6) 0;
+    background-color: var(--color-white);
+    border-bottom: 1px solid var(--color-gray-100);
     position: sticky;
     top: 80px;
     z-index: 10;
@@ -848,55 +848,34 @@ p {
 .filter-buttons {
     display: flex;
     justify-content: center;
-    gap: var(--spacing-4);
+    gap: var(--spacing-3);
     flex-wrap: wrap;
     max-width: 800px;
     margin: 0 auto;
 }
 
 .filter-btn {
-    padding: var(--spacing-3) var(--spacing-6);
-    border: 2px solid var(--color-primary);
+    padding: var(--spacing-2) var(--spacing-4);
+    border: none;
     border-radius: var(--radius-full);
-    background: transparent;
-    color: var(--color-primary);
-    font-weight: 600;
+    background: var(--color-gray-50);
+    color: var(--color-text);
+    font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-size: var(--font-size-base);
+    transition: all 0.2s ease;
+    font-size: var(--font-size-sm);
     position: relative;
-    overflow: hidden;
 }
 
-.filter-btn::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    background: var(--color-primary);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    transition: width 0.6s ease, height 0.6s ease;
-    z-index: -1;
+.filter-btn:hover {
+    background: var(--color-gray-100);
+    color: var(--color-primary);
 }
 
-.filter-btn:hover::before {
-    width: 300%;
-    height: 300%;
-}
-
-.filter-btn:hover,
 .filter-btn.active {
+    background: var(--color-primary);
     color: var(--color-white);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
-}
-
-.filter-btn.active::before {
-    width: 300%;
-    height: 300%;
+    box-shadow: var(--shadow-sm);
 }
 
 .portfolio-grid {
@@ -907,31 +886,36 @@ p {
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: var(--spacing-8);
-    max-width: 1200px;
+    gap: var(--spacing-6);
+    max-width: 1400px;
     margin: 0 auto;
+    padding: 0 var(--spacing-4);
 }
 
 .gallery-item {
     position: relative;
     overflow: hidden;
     border-radius: var(--radius-lg);
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: var(--color-white);
+    box-shadow: var(--shadow-sm);
+    transition: all 0.3s ease;
     cursor: pointer;
+    opacity: 1;
+    transform: scale(1);
 }
 
 .gallery-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
 }
 
 .gallery-image {
     position: relative;
     width: 100%;
     height: 0;
-    padding-bottom: 75%; /* 4:3 aspect ratio */
+    padding-bottom: 66.67%; /* 3:2 aspect ratio */
     overflow: hidden;
+    background: var(--color-gray-50);
 }
 
 .gallery-image img {
@@ -941,11 +925,11 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
 }
 
 .gallery-item:hover .gallery-image img {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .gallery-overlay {
@@ -954,11 +938,14 @@ p {
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.2));
+    background: linear-gradient(to top, 
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        rgba(0, 0, 0, 0) 100%);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    padding: var(--spacing-4);
+    padding: var(--spacing-6);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -971,15 +958,17 @@ p {
     color: var(--color-white);
     font-size: var(--font-size-xl);
     margin-bottom: var(--spacing-2);
-    transform: translateY(20px);
+    transform: translateY(10px);
     transition: transform 0.3s ease;
+    font-weight: 600;
 }
 
 .gallery-overlay p {
     color: var(--color-gray-200);
     font-size: var(--font-size-base);
-    transform: translateY(20px);
+    transform: translateY(10px);
     transition: transform 0.3s ease 0.1s;
+    opacity: 0.9;
 }
 
 .gallery-item:hover .gallery-overlay h3,
@@ -997,7 +986,13 @@ p {
 
 @media (min-width: 1024px) {
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
         gap: var(--spacing-8);
+    }
+}
+
+@media (min-width: 1280px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
     }
 } 

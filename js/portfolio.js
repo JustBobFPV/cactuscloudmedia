@@ -8,15 +8,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const galleryItems = document.querySelectorAll('.gallery-item');
     let animationFrame;
 
-    // Debounced animation function
+    // Debounced animation function with improved performance
     const animateItems = (filter) => {
         if (animationFrame) {
             cancelAnimationFrame(animationFrame);
         }
 
+        // Use requestAnimationFrame for smooth animations
         animationFrame = requestAnimationFrame(() => {
             galleryItems.forEach(item => {
-                if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                const isVisible = filter === 'all' || item.getAttribute('data-category') === filter;
+                
+                // Apply transitions smoothly
+                if (isVisible) {
                     item.style.display = 'block';
                     // Use requestAnimationFrame for smoother animation
                     requestAnimationFrame(() => {
@@ -25,18 +29,19 @@ document.addEventListener('DOMContentLoaded', function() {
                     });
                 } else {
                     item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    // Use requestAnimationFrame for smoother animation
-                    requestAnimationFrame(() => {
-                        setTimeout(() => {
+                    item.style.transform = 'scale(0.95)';
+                    // Hide after animation completes
+                    setTimeout(() => {
+                        if (item.style.opacity === '0') {
                             item.style.display = 'none';
-                        }, 300);
-                    });
+                        }
+                    }, 300);
                 }
             });
         });
     };
 
+    // Add click handlers to filter buttons
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             // Remove active class from all buttons
@@ -49,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Initialize video grid layout
+    // Initialize video grid layout with improved aspect ratio handling
     const videoGrid = document.querySelector('.video-grid');
     if (videoGrid) {
         const videoItems = videoGrid.querySelectorAll('.video-item');
@@ -58,8 +63,33 @@ document.addEventListener('DOMContentLoaded', function() {
         videoItems.forEach(item => {
             const wrapper = item.querySelector('.video-wrapper');
             if (wrapper) {
-                wrapper.style.paddingBottom = '56.25%'; // 16:9 aspect ratio
+                // Use CSS custom property for aspect ratio
+                wrapper.style.setProperty('--aspect-ratio', '56.25%'); // 16:9 aspect ratio
+                wrapper.style.paddingBottom = 'var(--aspect-ratio)';
             }
+        });
+    }
+
+    // Add intersection observer for lazy loading
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target.querySelector('img');
+                    if (img && img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '50px 0px',
+            threshold: 0.01
+        });
+
+        galleryItems.forEach(item => {
+            imageObserver.observe(item);
         });
     }
 }); 
