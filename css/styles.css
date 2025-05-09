@@ -890,10 +890,19 @@ p {
 
 .add-ons-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 2rem;
     padding: 0 1rem;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.add-ons-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .add-on-card {
@@ -990,19 +999,10 @@ p {
     line-height: 1.6;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     .add-ons-grid {
         grid-template-columns: 1fr;
-        padding: 0 0.5rem;
-    }
-    
-    .add-on-card {
-        padding: 1.5rem;
-    }
-    
-    .add-on-icon {
-        width: 64px;
-        height: 64px;
+        max-width: 600px;
     }
 }
 
