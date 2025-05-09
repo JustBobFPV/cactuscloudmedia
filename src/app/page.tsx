@@ -132,14 +132,14 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold mb-2">Standard Photo + Video</h3>
                 <div className="text-2xl font-bold text-blue-900 mb-4">$150</div>
                 <p className="text-gray-600 mb-6">
-                  Comprehensive coverage with both photos and engaging video content.
+                  Comprehensive coverage with both aerial photos and engaging video content.
                 </p>
                 <ul className="space-y-2 mb-6 text-gray-700">
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    15-20 photos (interior & exterior)
+                    15-20 aerial photos of property and surroundings
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -181,32 +181,32 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold mb-2">Premium Video Tour</h3>
                 <div className="text-2xl font-bold text-blue-900 mb-4">$200</div>
                 <p className="text-gray-600 mb-6">
-                  Professional video tour with dynamic fly-through footage for an immersive experience.
+                  Professional aerial video tour with dynamic footage for an immersive experience.
                 </p>
                 <ul className="space-y-2 mb-6 text-gray-700">
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    20+ photos (interior & exterior)
+                    20+ aerial photos of property and surroundings
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    1-2 minute branded video tour
+                    1-2 minute branded aerial video tour
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    Basic FPV fly-through option
+                    Enhanced editing and color grading
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    Enhanced video editing
+                    Advanced aerial angles and perspectives
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -234,19 +234,19 @@ export default function Home() {
                     <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    25+ professional photos
+                    25+ professional aerial photos
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    2-3 minute cinematic video
+                    2-3 minute cinematic aerial video
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
                     </svg>
-                    FPV interior fly-through footage
+                    Aerial property reveal sequences
                   </li>
                   <li className="flex items-start">
                     <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -275,14 +275,14 @@ export default function Home() {
               {/* FPV Flythrough */}
               <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
                 <h4 className="text-xl font-semibold mb-2">Dynamic FPV Flythrough</h4>
-                <p className="text-gray-600 mb-2">Immersive interior tour video with dramatic fly-through footage using our DJI Avata 2.</p>
+                <p className="text-gray-600 mb-2">Immersive property flyover with dramatic aerial footage using our DJI Avata 2.</p>
                 <p className="text-blue-900 font-bold">From $150</p>
               </div>
               
               {/* Twilight Shoot */}
               <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
                 <h4 className="text-xl font-semibold mb-2">Twilight Photography</h4>
-                <p className="text-gray-600 mb-2">Stunning dusk shots that highlight your property with warm interior lighting.</p>
+                <p className="text-gray-600 mb-2">Stunning dusk shots that highlight your property in magical evening light.</p>
                 <p className="text-blue-900 font-bold">From $50</p>
               </div>
               
