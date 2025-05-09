@@ -838,6 +838,7 @@ p {
 .portfolio-filter {
     padding: var(--spacing-8) 0;
     background-color: var(--color-gray-50);
+    border-bottom: 1px solid var(--color-gray-200);
 }
 
 .filter-buttons {
@@ -848,30 +849,36 @@ p {
 }
 
 .filter-btn {
-    padding: var(--spacing-2) var(--spacing-4);
+    padding: var(--spacing-3) var(--spacing-6);
     border: 2px solid var(--color-primary);
     border-radius: var(--radius-full);
     background: transparent;
     color: var(--color-primary);
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
+    font-size: var(--font-size-base);
 }
 
 .filter-btn:hover,
 .filter-btn.active {
     background-color: var(--color-primary);
     color: var(--color-white);
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
 }
 
 .portfolio-grid {
     padding: var(--spacing-12) 0;
+    background-color: var(--color-white);
 }
 
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    gap: var(--spacing-6);
+    gap: var(--spacing-8);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .gallery-item {
@@ -879,16 +886,19 @@ p {
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-md);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
+    background-color: var(--color-white);
 }
 
 .gallery-item:hover {
     transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
 }
 
 .gallery-image {
     position: relative;
     padding-bottom: 75%; /* 4:3 aspect ratio */
+    background-color: var(--color-gray-100);
 }
 
 .gallery-image img {
@@ -898,12 +908,20 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-image img {
+    transform: scale(1.05);
 }
 
 .gallery-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    background: linear-gradient(to top, 
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(0, 0, 0, 0.4) 50%,
+        transparent 100%);
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -913,21 +931,35 @@ p {
     transition: opacity 0.3s ease;
 }
 
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
 .gallery-overlay h3 {
     font-size: var(--font-size-xl);
     margin-bottom: var(--spacing-2);
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
 }
 
 .gallery-overlay p {
     font-size: var(--font-size-base);
     opacity: 0.9;
     margin-bottom: 0;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay h3,
+.gallery-item:hover .gallery-overlay p {
+    transform: translateY(0);
 }
 
 /* Video Portfolio */
 .video-portfolio {
     padding: var(--spacing-12) 0;
     background-color: var(--color-gray-50);
+    border-top: 1px solid var(--color-gray-200);
 }
 
 .video-grid {
@@ -935,6 +967,8 @@ p {
     grid-template-columns: repeat(1, 1fr);
     gap: var(--spacing-8);
     margin-top: var(--spacing-8);
+    max-width: 1200px;
+    margin: var(--spacing-8) auto 0;
 }
 
 .video-item {
@@ -942,6 +976,12 @@ p {
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+}
+
+.video-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-xl);
 }
 
 .video-wrapper {
@@ -949,6 +989,7 @@ p {
     width: 100%;
     height: 0;
     padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    background-color: var(--color-gray-100);
 }
 
 .video-wrapper iframe {
@@ -957,12 +998,14 @@ p {
     left: 0;
     width: 100%;
     height: 100%;
+    border: none;
 }
 
 .video-item h3 {
     padding: var(--spacing-4);
     margin-bottom: 0;
     font-size: var(--font-size-xl);
+    color: var(--color-text);
 }
 
 .video-item p {
@@ -984,6 +1027,6 @@ p {
 
 @media (min-width: 1024px) {
     .gallery-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 } 
