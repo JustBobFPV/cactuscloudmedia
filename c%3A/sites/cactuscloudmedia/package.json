@@ -1,7 +1,0 @@
-// Remove the following lines related to Next.js
-"dev": "next dev",
-"build": "next build",
-"start": "next start",
-"lint": "next lint",
-"next": "14.1.0",
-"eslint-config-next": "14.1.0" 

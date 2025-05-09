@@ -3,34 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Generate Portfolio Placeholders</title>
+    <title>Portfolio Image Generator</title>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <style>
-        body {
-            font-family: system-ui, -apple-system, sans-serif;
+        * {
             margin: 0;
-            padding: 20px;
-            background: #f3f4f6;
+            padding: 0;
+            box-sizing: border-box;
         }
-        .image-container {
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            padding: 2rem;
+            background: #f5f5f5;
+        }
+        .instructions {
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .instructions h1 {
+            color: #2d3748;
+            margin-bottom: 1rem;
+        }
+        .instructions ol {
+            padding-left: 1.5rem;
+        }
+        .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
         .placeholder {
-            width: 100%;
-            aspect-ratio: 4/3;
-            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #4a90e2, #2d3748);
+            border-radius: 8px;
+            padding: 2rem;
             color: white;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow: hidden;
         }
@@ -41,130 +60,79 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><rect width="1" height="1" fill="rgba(255,255,255,0.1)"/></svg>');
-            opacity: 0.1;
+            background: linear-gradient(45deg, rgba(0,0,0,0.2), transparent);
         }
         .placeholder h2 {
-            margin: 0 0 10px 0;
             font-size: 1.5rem;
-            font-weight: 600;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            margin-bottom: 0.5rem;
+            position: relative;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
         .placeholder p {
-            margin: 0;
-            opacity: 0.9;
             font-size: 1rem;
-        }
-        .placeholder .category {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255,255,255,0.2);
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.875rem;
-            font-weight: 500;
+            opacity: 0.9;
+            position: relative;
         }
         .download-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background: #0369a1;
-            color: white;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: white;
+            color: #2d3748;
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.2s;
+            font-weight: 500;
+            transition: transform 0.2s;
         }
         .download-btn:hover {
-            background: #0284c7;
-        }
-        .instructions {
-            max-width: 600px;
-            margin: 0 auto 40px;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        .instructions h1 {
-            margin-top: 0;
-            color: #1e3a8a;
-        }
-        .instructions ol {
-            margin: 0;
-            padding-left: 20px;
-        }
-        .instructions li {
-            margin-bottom: 10px;
+            transform: translateY(-2px);
         }
     </style>
 </head>
 <body>
     <div class="instructions">
-        <h1>Portfolio Placeholder Generator</h1>
-        <p>This tool generates placeholder images for your portfolio. Follow these steps:</p>
+        <h1>Portfolio Image Generator</h1>
         <ol>
-            <li>Click the "Download Image" button under each placeholder</li>
-            <li>Save the images in your <code>images/portfolio/</code> directory</li>
-            <li>The images will automatically appear in your portfolio page</li>
+            <li>Click the "Download Image" button below each placeholder</li>
+            <li>Save the image with the suggested filename</li>
+            <li>Place the downloaded images in the portfolio images directory</li>
         </ol>
     </div>
-
-    <div class="image-container">
-        <!-- Residential Placeholders -->
+    <div class="grid">
         <div class="placeholder" id="residential-1">
-            <div class="category">Residential</div>
             <h2>Luxury Home</h2>
-            <p>Aerial View</p>
-            <p>Professional Drone Photography</p>
+            <p>Aerial view of a modern luxury residence</p>
+            <button class="download-btn" onclick="downloadImage('residential-1')">Download Image</button>
         </div>
-
-        <div class="placeholder" id="residential-2">
-            <div class="category">Residential</div>
-            <h2>Modern Home</h2>
-            <p>Aerial View</p>
-            <p>Professional Drone Photography</p>
-        </div>
-
-        <!-- Commercial Placeholders -->
         <div class="placeholder" id="commercial-1">
-            <div class="category">Commercial</div>
             <h2>Office Complex</h2>
-            <p>Aerial View</p>
-            <p>Professional Drone Photography</p>
+            <p>Modern commercial building from above</p>
+            <button class="download-btn" onclick="downloadImage('commercial-1')">Download Image</button>
         </div>
-
+        <div class="placeholder" id="residential-2">
+            <h2>Modern Home</h2>
+            <p>Contemporary residential property showcase</p>
+            <button class="download-btn" onclick="downloadImage('residential-2')">Download Image</button>
+        </div>
         <div class="placeholder" id="commercial-2">
-            <div class="category">Commercial</div>
             <h2>Shopping Center</h2>
-            <p>Aerial View</p>
-            <p>Professional Drone Photography</p>
+            <p>Retail complex aerial perspective</p>
+            <button class="download-btn" onclick="downloadImage('commercial-2')">Download Image</button>
         </div>
     </div>
-
     <script>
-        // Function to convert div to image
-        function convertToImage(element, filename) {
-            html2canvas(element).then(canvas => {
-                const link = document.createElement('a');
-                link.download = filename;
-                link.href = canvas.toDataURL('image/jpeg', 0.8);
-                link.click();
+        async function downloadImage(id) {
+            const element = document.getElementById(id);
+            const canvas = await html2canvas(element, {
+                backgroundColor: null,
+                scale: 2
             });
+            
+            const link = document.createElement('a');
+            link.download = `${id}.jpg`;
+            link.href = canvas.toDataURL('image/jpeg', 0.9);
+            link.click();
         }
-
-        // Add download buttons
-        document.querySelectorAll('.placeholder').forEach(placeholder => {
-            const btn = document.createElement('button');
-            btn.className = 'download-btn';
-            btn.textContent = 'Download Image';
-            btn.onclick = () => {
-                const filename = `${placeholder.id}.jpg`;
-                convertToImage(placeholder, filename);
-            };
-            placeholder.appendChild(btn);
-        });
     </script>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </body>
 </html> 
