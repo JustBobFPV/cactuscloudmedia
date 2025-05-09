@@ -75,62 +75,233 @@ export default function Home() {
       {/* Services Section */}
       <section id="services" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-16">Our Services</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {/* Basic Package */}
-            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
-              <h3 className="text-2xl font-semibold mb-4">Basic Package</h3>
-              <p className="text-gray-600 mb-6">
-                8 high-quality aerial photos of your property, perfect for basic listings.
-              </p>
-              <ul className="space-y-2 mb-6">
-                <li>• 8 aerial photos</li>
-                <li>• 24-hour delivery</li>
-                <li>• Basic editing</li>
-                <li>• Property overview shots</li>
-              </ul>
-              <div className="text-xl font-bold text-blue-900 mb-4">$149</div>
-              <button className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors">
+          <h2 className="text-4xl font-bold text-center mb-4">Our Services</h2>
+          <p className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+            Professional drone photography and videography packages designed to make your listings stand out in the Albuquerque market.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Basic Aerial Photo Package */}
+            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 flex flex-col h-full border-t-4 border-blue-400">
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold mb-2">Basic Aerial Photo</h3>
+                <div className="text-2xl font-bold text-blue-900 mb-4">$100</div>
+                <p className="text-gray-600 mb-6">
+                  Essential aerial photography to showcase your property's exterior and surroundings.
+                </p>
+                <ul className="space-y-2 mb-6 text-gray-700">
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    10-15 high-resolution aerial photos
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Exterior angles & property overview
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Basic photo editing included
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    24-hour delivery
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    ~30-45 min on-site shoot
+                  </li>
+                </ul>
+              </div>
+              <button className="w-full bg-blue-900 text-white py-3 rounded-lg hover:bg-blue-800 transition-colors mt-4">
                 Learn More
               </button>
             </div>
 
-            {/* Premium Package */}
-            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
-              <h3 className="text-2xl font-semibold mb-4">Premium Package</h3>
-              <p className="text-gray-600 mb-6">
-                Comprehensive aerial coverage with both photos and a professionally edited video for maximum impact.
-              </p>
-              <ul className="space-y-2 mb-6">
-                <li>• 15 high-quality aerial photos</li>
-                <li>• 60-second professionally edited aerial video</li>
-                <li>• Basic editing</li>
-                <li>• 48-hour delivery</li>
-                <li>• Property highlights</li>
-              </ul>
-              <div className="text-xl font-bold text-blue-900 mb-4">$249</div>
-              <button className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors">
+            {/* Standard Photo + Video Package */}
+            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 flex flex-col h-full border-t-4 border-blue-600">
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold mb-2">Standard Photo + Video</h3>
+                <div className="text-2xl font-bold text-blue-900 mb-4">$150</div>
+                <p className="text-gray-600 mb-6">
+                  Comprehensive coverage with both photos and engaging video content.
+                </p>
+                <ul className="space-y-2 mb-6 text-gray-700">
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    15-20 photos (interior & exterior)
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    30-60 second highlight video
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Basic music overlay
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    48-hour delivery
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    ~1 hour on-site shoot
+                  </li>
+                </ul>
+              </div>
+              <button className="w-full bg-blue-900 text-white py-3 rounded-lg hover:bg-blue-800 transition-colors mt-4">
                 Learn More
               </button>
             </div>
 
-            {/* Custom Package */}
-            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-shadow">
-              <h3 className="text-2xl font-semibold mb-4">Custom Package</h3>
-              <p className="text-gray-600 mb-6">
-                Tailored aerial solutions for your specific needs and requirements.
-              </p>
-              <ul className="space-y-2 mb-6">
-                <li>• Custom photo count</li>
-                <li>• Extended video length</li>
-                <li>• Premium editing</li>
-                <li>• Priority delivery</li>
-              </ul>
-              <div className="text-xl font-bold text-blue-900 mb-4">Contact for Quote</div>
-              <button className="w-full bg-blue-900 text-white py-2 rounded-lg hover:bg-blue-800 transition-colors">
-                Contact Us
+            {/* Premium Video Tour Package */}
+            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 flex flex-col h-full border-t-4 border-blue-700 relative">
+              <div className="absolute top-0 right-0 bg-blue-700 text-white text-xs font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                POPULAR
+              </div>
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold mb-2">Premium Video Tour</h3>
+                <div className="text-2xl font-bold text-blue-900 mb-4">$200</div>
+                <p className="text-gray-600 mb-6">
+                  Professional video tour with dynamic fly-through footage for an immersive experience.
+                </p>
+                <ul className="space-y-2 mb-6 text-gray-700">
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    20+ photos (interior & exterior)
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    1-2 minute branded video tour
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Basic FPV fly-through option
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Enhanced video editing
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    ~1.5 hours on-site
+                  </li>
+                </ul>
+              </div>
+              <button className="w-full bg-blue-800 text-white py-3 rounded-lg hover:bg-blue-700 transition-colors mt-4">
+                Learn More
               </button>
             </div>
+
+            {/* Luxury Showcase Package */}
+            <div className="bg-white rounded-lg shadow-lg p-8 hover:shadow-xl transition-all duration-300 flex flex-col h-full border-t-4 border-blue-900">
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold mb-2">Luxury Showcase</h3>
+                <div className="text-2xl font-bold text-blue-900 mb-4">$300</div>
+                <p className="text-gray-600 mb-6">
+                  Premium all-inclusive package for high-end properties that demand exceptional marketing.
+                </p>
+                <ul className="space-y-2 mb-6 text-gray-700">
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    25+ professional photos
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    2-3 minute cinematic video
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    FPV interior fly-through footage
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    Complimentary twilight shoot
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="w-5 h-5 text-blue-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    ~2+ hours on-site
+                  </li>
+                </ul>
+              </div>
+              <button className="w-full bg-blue-900 text-white py-3 rounded-lg hover:bg-blue-800 transition-colors mt-4">
+                Learn More
+              </button>
+            </div>
+          </div>
+
+          {/* Add-ons Section */}
+          <div className="mt-16">
+            <h3 className="text-2xl font-bold text-center mb-8">Add-on Services</h3>
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* FPV Flythrough */}
+              <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+                <h4 className="text-xl font-semibold mb-2">Dynamic FPV Flythrough</h4>
+                <p className="text-gray-600 mb-2">Immersive interior tour video with dramatic fly-through footage using our DJI Avata 2.</p>
+                <p className="text-blue-900 font-bold">From $150</p>
+              </div>
+              
+              {/* Twilight Shoot */}
+              <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+                <h4 className="text-xl font-semibold mb-2">Twilight Photography</h4>
+                <p className="text-gray-600 mb-2">Stunning dusk shots that highlight your property with warm interior lighting.</p>
+                <p className="text-blue-900 font-bold">From $50</p>
+              </div>
+              
+              {/* Social Media Content */}
+              <div className="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+                <h4 className="text-xl font-semibold mb-2">Social Media Teasers</h4>
+                <p className="text-gray-600 mb-2">Short, engaging video clips optimized for Instagram and Facebook to promote your listing.</p>
+                <p className="text-blue-900 font-bold">From $25</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Special Offer */}
+          <div className="mt-16 bg-gradient-to-r from-blue-900 to-blue-700 rounded-xl p-8 text-white text-center">
+            <h3 className="text-2xl font-bold mb-4">New Client Special</h3>
+            <p className="text-lg mb-6">15% off your first booking with Cactus Cloud Media</p>
+            <button className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-all duration-300 transform hover:scale-105">
+              Get Started Today
+            </button>
           </div>
         </div>
       </section>
