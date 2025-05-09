@@ -8,18 +8,52 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center bg-gradient-to-r from-blue-900 to-blue-700">
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
-        <div className="container mx-auto px-4 z-20 text-center text-white">
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Cactus Cloud Media
-          </h1>
-          <p className="text-xl md:text-2xl mb-8">
-            Elevating Real Estate Marketing with Aerial Excellence
-          </p>
-          <button className="bg-white text-blue-900 px-8 py-3 rounded-full font-semibold hover:bg-blue-100 transition-colors">
-            View Our Work
-          </button>
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        {/* Animated background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-900">
+          <div className="absolute inset-0 bg-[url('/images/drone-pattern.png')] opacity-10 animate-pulse"></div>
+          <div className="absolute inset-0 bg-black/40"></div>
+        </div>
+        
+        {/* Content */}
+        <div className="container mx-auto px-4 z-20 text-center">
+          <div className="max-w-4xl mx-auto space-y-8 animate-fade-in">
+            <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+              Cactus Cloud Media
+            </h1>
+            <p className="text-xl md:text-2xl text-blue-100 mb-4">
+              Elevating Real Estate Marketing with
+            </p>
+            <p className="text-2xl md:text-3xl font-semibold text-white mb-8">
+              Professional Aerial Excellence
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-white text-blue-900 px-8 py-4 rounded-full font-semibold hover:bg-blue-100 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+                View Our Work
+              </button>
+              <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+                Get a Quote
+              </button>
+            </div>
+            <p className="text-blue-100 mt-8 text-sm md:text-base">
+              Serving the Greater Albuquerque Metropolitan Area
+            </p>
+          </div>
+        </div>
+
+        {/* Scroll indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <svg
+            className="w-6 h-6 text-white"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+          </svg>
         </div>
       </section>
 
