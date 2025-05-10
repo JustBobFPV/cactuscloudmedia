@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
     <!-- Cloud shape -->
-    <path d="M30 25C32.7614 25 35 22.7614 35 20C35 17.2386 32.7614 15 30 15C30 10.5817 26.4183 7 22 7C18.5 7 15.5 9.5 14.5 13C10.5 13 7 16.5 7 20.5C7 24.5 10.5 28 14.5 28H30V25Z" fill="#1e3a8a"/>
+    <ellipse cx="20" cy="25" rx="13" ry="8" fill="#1e3a8a"/>
+    <ellipse cx="14" cy="23" rx="5" ry="4" fill="#1e3a8a"/>
+    <ellipse cx="26" cy="22" rx="7" ry="5" fill="#1e3a8a"/>
     <!-- Cactus silhouette -->
-    <path d="M20 15L20 25M20 15C18.3431 15 17 16.3431 17 18C17 19.6569 18.3431 21 20 21C21.6569 21 23 19.6569 23 18C23 16.3431 21.6569 15 20 15Z" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    <path d="M20 32V18M20 24c-2 0-2-3-2-3v-2m2 5c2 0 2-3 2-3v-2m-6 7v-4m12 4v-4" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg> 
